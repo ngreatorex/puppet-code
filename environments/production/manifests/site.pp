@@ -4,9 +4,6 @@ node 'raspi-monitoring.lan' {
 
 node 'raspi-puppet.win.lan' {
 	include local::linux
-	class { 'puppetdb::master::config':
-		puppetdb_server => 'ubuntu.lan'
-	}
 }
 
 node 'raspi-c.lan' {
