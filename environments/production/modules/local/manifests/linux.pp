@@ -9,5 +9,19 @@ class local::linux {
 	class { 'ntp':
 		servers => [ 'ntp.lan' ],
 	}
+
+	class { 'mit_krb5': 
+		default_realm => 'WIN.LAN',
+	}
+
+	sshd_config { "PermitRootLogin":
+		ensure => present,
+		value  => "no",
+	}
+
+	sshd_config { "GSSAPIAuthentication":
+		ensure => present,
+		value  => "yes",
+	}
 }
 
