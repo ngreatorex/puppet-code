@@ -15,7 +15,7 @@ node 'raspi-weather.lan' {
 }
 
 node 'raspi-e.win.lan' {
-
+	include local::linux
 }
 
 node 'ubuntu.lan' {
