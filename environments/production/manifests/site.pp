@@ -44,6 +44,20 @@ node 'ubuntu.lan' {
 		vhost_name => 'puppetboard.lan',
 		port       => 80,
 	}
+
+	class { 'apache::mod::proxy': }
+	apache::vhost { 'ansible.lan': 
+		port	=> 80,
+		docroot => '/var/www/html',
+		servername => 'ansible.lan',
+		proxy_dest => 'http://localhost:8000'
+	}
+	apache::vhost { 'kibana.lan': 
+		port	=> 80,
+		docroot => '/var/www/html',
+		servername => 'kibana.lan',
+		proxy_dest => 'http://localhost:32768'
+	}
 }
 
 node default {
