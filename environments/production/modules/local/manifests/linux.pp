@@ -33,6 +33,18 @@ class local::linux {
 		ensure => 'installed',
 	}
 
+	service { 'rsyslog':
+		ensure => 'running',
+	}
+
+	package { 'lldpd':
+		ensure => 'installed',
+	}
+
+	service { 'lldpd':
+		ensure => 'running',
+	}
+
 	service { 'munin-node':
 		ensure => 'running',
 	}
@@ -44,10 +56,6 @@ class local::linux {
 
 	if $trusted['hostname'] != "raspi-monitoring" {
 	
-		service { 'rsyslog':
-			ensure => 'running',
-		}
-
 		file { '/etc/rsyslog.d/relp.conf':
 			ensure => present,
 			source => 'puppet:///modules/local/relp.conf',
