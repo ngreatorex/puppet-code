@@ -2,7 +2,7 @@ node 'raspi-monitoring.lan' {
 	include local::linux
 }
 
-node 'raspi-a.win.lan' {
+node 'raspi-a.lan' {
 	include local::linux
 }
 
