@@ -57,8 +57,15 @@ class local::linux {
 	if $trusted['hostname'] != "raspi-monitoring" {
 	
 		file { '/etc/rsyslog.d/relp.conf':
+#			ensure => present,
+#			source => 'puppet:///modules/local/relp.conf',
+			ensure => absent,
+			notify  => Service['rsyslog']
+		}
+
+		file { '/etc/rsyslog.d/diskstation.conf':
 			ensure => present,
-			source => 'puppet:///modules/local/relp.conf',
+			source => 'puppet:///modules/local/syslog.conf',
 			notify  => Service['rsyslog']
 		}
 
