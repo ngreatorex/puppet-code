@@ -46,6 +46,10 @@ class local::linux {
 	}
 
 	service { 'munin-node':
+		ensure => 'installed',
+	}
+
+	service { 'munin-node':
 		ensure => 'running',
 	}
 
