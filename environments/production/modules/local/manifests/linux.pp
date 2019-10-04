@@ -54,21 +54,17 @@ class local::linux {
 		notify => Service['munin-node']
 	}
 
-	if $trusted['hostname'] != "raspi-monitoring" {
+	file { '/etc/rsyslog.d/relp.conf':
+#		ensure => present,
+#		source => 'puppet:///modules/local/relp.conf',
+		ensure => absent,
+		notify  => Service['rsyslog']
+	}
 	
-		file { '/etc/rsyslog.d/relp.conf':
-#			ensure => present,
-#			source => 'puppet:///modules/local/relp.conf',
-			ensure => absent,
-			notify  => Service['rsyslog']
-		}
-
-		file { '/etc/rsyslog.d/diskstation.conf':
-			ensure => present,
-			source => 'puppet:///modules/local/syslog.conf',
-			notify  => Service['rsyslog']
-		}
-
+	file { '/etc/rsyslog.d/diskstation.conf':
+		ensure => present,
+		source => 'puppet:///modules/local/syslog.conf',
+		notify  => Service['rsyslog']
 	}
 }
 
