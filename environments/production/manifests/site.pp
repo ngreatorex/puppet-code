@@ -1,8 +1,8 @@
-node 'raspi-monitoring.lan' {
+node 'raspi-a.lan' {
 	include local::linux
 }
 
-node 'raspi-a.lan' {
+node 'raspi-b.lan' {
 	include local::linux
 }
 
@@ -10,11 +10,15 @@ node 'raspi-c.lan' {
 	include local::linux
 }
 
-node 'raspi-weather.lan' {
+node 'raspi-d.lan' {
 	include local::linux
 }
 
 node 'raspi-e.win.lan' {
+	include local::linux
+}
+
+node 'raspi-weather.lan' {
 	include local::linux
 }
 
