@@ -5,8 +5,16 @@ class local::linux {
 	include local::sudoers
 	include ::profiled
 
-	profiled::script { 'vim.sh':
-		content => 'alias vim=vim.tiny',
+	package { 'vim-tiny':
+		ensure => 'purged',
+	}
+
+	package { 'vim':
+		ensure => 'installed',
+	}
+
+	file { '/etc/profile.d/vim.sh':
+		ensure => 'absent',
 	}
 
 	profiled::script { 'ps1.sh':
