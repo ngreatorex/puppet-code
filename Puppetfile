@@ -3,6 +3,8 @@ forge 'https://forge.puppet.com'
 # Modules from the Puppet Forge
 mod 'pfmooney/mit_krb5',	'0.0.5'
 
+mod 'puppet/puppetboard',	'4.0.0'
+
 mod 'puppetlabs/apache', 	'2.3.1'
 mod 'puppetlabs/apt', 		'4.5.1'
 mod 'puppetlabs/concat',	'4.1.1'
