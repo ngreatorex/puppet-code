@@ -22,6 +22,10 @@ node 'raspi-weather.lan' {
 	include local::linux
 }
 
+node 'bacula.lan' {
+	include local::linux
+}
+
 node 'ubuntu.lan' {
 	include local::linux
 	include puppetdb
