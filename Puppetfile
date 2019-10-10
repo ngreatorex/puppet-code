@@ -18,4 +18,6 @@ mod 'saz/sudo',			'4.2.0'
 
 mod 'spotify/puppetexplorer',	'1.1.1'
 
+mod 'stankevich/python',	'1.18.2'
+
 mod 'unibet/profiled',		'0.1.4'
