@@ -1,33 +1,8 @@
-node 'raspi-a.lan' {
-	include local::linux
-}
-
-node 'raspi-b.lan' {
-	include local::linux
-}
-
-node 'raspi-c.lan' {
-	include local::linux
-}
-
-node 'raspi-d.lan' {
-	include local::linux
-}
-
-node 'raspi-e.win.lan' {
-	include local::linux
-}
-
-node 'raspi-weather.lan' {
-	include local::linux
-}
-
-node 'bacula.lan' {
+if $facts['kernel'] == 'Linux' {
 	include local::linux
 }
 
 node 'ubuntu.lan' {
-	include local::linux
 	include puppetdb
 	class { 'puppetdb::master::config':
 		puppet_confdir => '/etc/puppetlabs/puppet',
