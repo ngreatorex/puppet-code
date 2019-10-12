@@ -1,6 +1,8 @@
 forge 'https://forge.puppet.com'
 
 # Modules from the Puppet Forge
+mod 'herculesteam/augeasproviders_ssh',		'3.2.1'
+
 mod 'pfmooney/mit_krb5',	'0.0.5'
 
 mod 'puppet/puppetboard',	'4.0.0'
