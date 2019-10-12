@@ -1,7 +1,3 @@
-if $facts['kernel'] == 'Linux' {
-	include local::linux
-}
-
 node 'ubuntu.lan' {
 	include puppetdb
 	class { 'puppetdb::master::config':
@@ -44,5 +40,7 @@ node 'ubuntu.lan' {
 }
 
 node default {
-
+	if $facts['kernel'] == 'Linux' {
+		include local::linux
+	}
 }
